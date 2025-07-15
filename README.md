@@ -8,18 +8,18 @@ Si se esta iniciando un nuevo proyecto, se recomienda crear un nuevo repositorio
 Adicionalmente, se recomienda ejecutar estos comandos reemplazando los siguientes valores:
 
 ```bash
-export BASE_MS_MODULE_NAME=github.com/golang-etl/base-fetch
-export BASE_MS_EXAMPLE_PROVIDER=login
-export BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE=login
-export BASE_MS_EXAMPLE_PROVIDER_PASCAL_CASE=Login
+export BASE_MS_MODULE_NAME=github.com/autoika/api-config
+export BASE_MS_EXAMPLE_PROVIDER=setConfigGame
+export BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE=setConfigGame
+export BASE_MS_EXAMPLE_PROVIDER_PASCAL_CASE=SetConfigGame
 
-LC_CTYPE=C find . -type f -not -path "./.git/*" -exec sed -i '' "s|github.com/golang-etl/base-fetch|$BASE_MS_MODULE_NAME|g" {} +
-LC_CTYPE=C find . -type f -not -path "./.git/*" -exec sed -i '' "s|login|$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE|g" {} +
-LC_CTYPE=C find . -type f -not -path "./.git/*" -exec sed -i '' "s|Login|$BASE_MS_EXAMPLE_PROVIDER_PASCAL_CASE|g" {} +
+LC_CTYPE=C find . -type f -not -path "./.git/*" -exec sed -i '' "s|github.com/autoika/api-config|$BASE_MS_MODULE_NAME|g" {} +
+LC_CTYPE=C find . -type f -not -path "./.git/*" -exec sed -i '' "s|setConfigGame|$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE|g" {} +
+LC_CTYPE=C find . -type f -not -path "./.git/*" -exec sed -i '' "s|SetConfigGame|$BASE_MS_EXAMPLE_PROVIDER_PASCAL_CASE|g" {} +
 
-mv src/controllers/http/login.go src/controllers/http/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE.go
-mv src/providers/login src/providers/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE
-mv src/providers/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE/login.go src/providers/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE.go
+mv src/controllers/http/setConfigGame.go src/controllers/http/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE.go
+mv src/providers/setConfigGame src/providers/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE
+mv src/providers/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE/setConfigGame.go src/providers/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE/$BASE_MS_EXAMPLE_PROVIDER_CAMEL_CASE.go
 ```
 
 ## Dependencias privadas

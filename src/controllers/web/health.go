@@ -1,7 +1,7 @@
 package web
 
 import (
-	"github.com/golang-etl/base-fetch/src/providers/health"
+	"github.com/autoika/api-config/src/providers/health"
 	packagegeneralinterfaces "github.com/golang-etl/package-general/src/interfaces"
 	packagehttputils "github.com/golang-etl/package-http/src/utils"
 	"github.com/labstack/echo/v4"

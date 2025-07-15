@@ -6,7 +6,7 @@ import (
 )
 
 type Config struct {
-	GoModuleName           string `env:"GO_MODULE_NAME" envDefault:"github.com/golang-etl/base-fetch"`
+	GoModuleName           string `env:"GO_MODULE_NAME" envDefault:"github.com/autoika/api-config"`
 	Env                    string `env:"ENV" envDefault:"local"`
 	EchoAddress            string `env:"ECHO_ADDRESS" envDefault:"0.0.0.0:8080"`
 	Debug                  bool   `env:"DEBUG" envDefault:"false"`

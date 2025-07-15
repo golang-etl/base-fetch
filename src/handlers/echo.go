@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
+	"github.com/autoika/api-config/src/config"
+	"github.com/autoika/api-config/src/controllers/web"
+	"github.com/autoika/api-config/src/database"
+	"github.com/autoika/api-config/src/providers/health"
+	"github.com/autoika/api-config/src/providers/setConfigGame"
 	"github.com/go-playground/validator/v10"
-	"github.com/golang-etl/base-fetch/src/config"
-	"github.com/golang-etl/base-fetch/src/controllers/web"
-	"github.com/golang-etl/base-fetch/src/database"
-	"github.com/golang-etl/base-fetch/src/providers/health"
-	"github.com/golang-etl/base-fetch/src/providers/login"
 	packagegeneralutils "github.com/golang-etl/package-general/src/utils"
 	packageusertokenmodels "github.com/golang-etl/package-user-token/src/models"
 	"github.com/golang-etl/package-user-token/src/providers/usertoken"
@@ -37,10 +37,10 @@ func main() {
 
 	userTokenProvider := usertoken.UserTokenProvider{UserTokenModel: userTokenModel}
 	healthProvider := health.HealthProvider{CfgGoModuleName: cfg.GoModuleName, CfgDebug: cfg.Debug, MongoClient: mainDB.Client}
-	loginProvider := login.LoginProvider{CfgGoModuleName: cfg.GoModuleName, CfgDebug: cfg.Debug, Validator: mainValidator, UserTokenModel: userTokenModel, UserTokenProvider: userTokenProvider}
+	setConfigGameProvider := setConfigGame.SetConfigGameProvider{CfgGoModuleName: cfg.GoModuleName, CfgDebug: cfg.Debug, Validator: mainValidator, UserTokenModel: userTokenModel, UserTokenProvider: userTokenProvider}
 
 	e.GET("/health", web.GetHealth(healthProvider))
-	e.POST("/login", web.Login(loginProvider))
+	e.POST("/config/game", web.SetConfigGame(setConfigGameProvider))
 
 	e.Logger.Fatal(e.Start(cfg.EchoAddress))
 }
